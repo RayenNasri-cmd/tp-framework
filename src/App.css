@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap");
+
+
+body  {
+  background: #f0f0f0;
+  margin:  0 auto;  
+  font-family: "Ubuntu";
+}
+
+.card {
+  background: white;
+  width: 350px;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  color: #3b6b8a;
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+
+header p {
+  color: #666;
+}
+
+nav {
+  background: #6cb4ee;
+  text-align: center;
+  padding: 15px;
+}
+
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+}
