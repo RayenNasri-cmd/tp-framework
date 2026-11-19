@@ -1,0 +1,41 @@
+.student-form{
+    background: white;
+    width:350px;
+    margin:10px auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.student-form h2{
+    font-size: 18px;
+    font-weight:normal;
+    color: black;
+}
+
+.student-form label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+    color:darkred;
+}
+
+.student-form input,
+.student-form select{
+    display:block;
+    width:90%;
+    margin:5px auto;
+    background: white;
+    color: black;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+
+}
+
+.student-form button{
+    padding: 8px 18px;
+    margin: 20px 4px 0;
+    background: wheat;
+    border: 1px solid tan;
+    border-radius: 6px;
+}

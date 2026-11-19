@@ -46,3 +46,10 @@ nav a {
   text-decoration: none;
   margin: 0 12px;
 }
+
+
+.student-list{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}

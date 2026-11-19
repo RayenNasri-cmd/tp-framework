@@ -1,4 +1,5 @@
 import {useState} from "react";
+import "../StudentForm.css";
 
 export const StudentForm=(props)=> {
 
@@ -22,15 +23,14 @@ function handleSubmit(e){
             telephone:telephone,
             filiere:filiere,
             image:image
-            
         };
        
         props.onAjouter(newEtudiant);
-
     }
 
 return (
-<form onSubmit={handleSubmit}>
+<form className="student-form"  onSubmit={handleSubmit}>
+
     <label for="nom">Nom:</label>
     <input type="text" id="nom" name="nom" onChange={(e) => setNom(e.target.value)} />
     
@@ -53,7 +53,7 @@ return (
 
     <label for="image">Image:</label>
     <input type="file" id="image" name="image" accept="image/*" onChange={(e) => {
-        fichier=e.target.files[0]
+        const fichier=e.target.files[0]
         if(fichier){
             setImage(URL.createObjectURL(fichier));
             }

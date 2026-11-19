@@ -37,7 +37,7 @@ import StudentForm from "./components/StudentForm.jsx";
     nom: "Khalfallah",
     email: "mariem.khalfallah@gmail.com",
     telephone: "+216 27 567 890",
-    filiere: "Génie Logiciel et Systèmes d'Information",
+    filiere: "IOT et Systèmes Embarqués",
     anneeEtude: "2ème année",
     groupe: "GLSI 2",
     ville: "Mahdia",
@@ -49,6 +49,7 @@ import StudentForm from "./components/StudentForm.jsx";
 function App() {
 
   const [etudiants ,setEtudiants]=useState(etudiants1);
+  const[recherche,setRecherche]=useState("");
 
   const functionSupp=(id)=>{
       setEtudiants(etudiants.filter((etudiant)=>etudiant.id!==id));
@@ -57,8 +58,16 @@ function App() {
     const ajouterStudents=(newEtudiant)=>{
         setEtudiants([...etudiants,newEtudiant]);
     }    
+
+
+    const etudiantsFiltres=etudiants.filter( (etudiant) => etudiant.filiere.toLowerCase().includes(recherche.toLowerCase()));
+          
+
   return (
     
+    <div>
+    
+
     
   <div style={{alignItems:"center"}}>
     <header >
@@ -71,29 +80,51 @@ function App() {
         <a href="#">Étudiants</a>
         <a href="#">Contact</a>
       </nav>
+
+
+      <div>
+    <input
+      type="text"
+      placeholder="Rechercher par filliere..."
+      value={recherche}
+      onChange={(e) => setRecherche(e.target.value)}
+      />
+    </div>
     
 
       <StudentForm onAjouter={ajouterStudents}/>
 
 
-    {etudiants.map((etudiant) => (
-      <StudentCard2
-        id={etudiant.id}
-        prenom={etudiant.prenom}
-        nom={etudiant.nom}
-        email={etudiant.email}
-        key ={etudiant.email}
-        telephone={etudiant.telephone}
-        filiere={etudiant.filiere}
-        anneeEtude={etudiant.anneeEtude}
-        groupe={etudiant.groupe}
-        ville={etudiant.ville}
-        image={etudiant.image}
-        onSupprimer={functionSupp}
-      />
-    )
-                  )   
-      }
+      <div className="student-list">
+      {etudiantsFiltres.map ((etudiant) => ( <StudentCard2 
+            id={etudiant.id}
+            prenom={etudiant.prenom}
+            nom={etudiant.nom}
+            email={etudiant.email}
+            key={etudiant.email}
+            telephone={etudiant.telephone}
+            filiere={etudiant.filiere}
+            anneeEtude={etudiant.anneeEtude}
+            groupe={etudiant.groupe}
+            ville={etudiant.ville}
+            image={etudiant.image}
+            onSupprimer={functionSupp}
+        />
+      ))}
+      </div>
+    
+
+      
+
+
+
+
+
+
+    
+                  
+      
+  </div>
   </div>
   );
 }
