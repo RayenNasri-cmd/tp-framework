@@ -10,7 +10,7 @@ export const StudentCard2=(props)=> {
 
   return (
       
-    <div className="container">
+    <div className="container" style={{display:"flex"}}>
     
       <div className="card">
         

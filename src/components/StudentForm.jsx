@@ -1,5 +1,5 @@
 import {useState} from "react";
-i
+
 export const StudentForm=(props)=> {
 
 const[nom,setNom]=useState("");
@@ -7,10 +7,30 @@ const[prenom,setPrenom]=useState("");
 const[email,setEmail]=useState("");
 const[telephone,setTelephone]=useState("");
 const[filiere,setFiliere]=useState("");
-const[image,setImage]=useState(null);
+const[image,setImage]=useState("");
 
 
-<form onSubmit={props.onAjouter}>
+function handleSubmit(e){
+    
+        e.preventDefault();
+        
+        const newEtudiant ={
+            id: Date.now().toString(),
+            nom:nom,
+            prenom:prenom,
+            email:email,
+            telephone:telephone,
+            filiere:filiere,
+            image:image
+            
+        };
+       
+        props.onAjouter(newEtudiant);
+
+    }
+
+return (
+<form onSubmit={handleSubmit}>
     <label for="nom">Nom:</label>
     <input type="text" id="nom" name="nom" onChange={(e) => setNom(e.target.value)} />
     
@@ -32,41 +52,24 @@ const[image,setImage]=useState(null);
     </select>
 
     <label for="image">Image:</label>
-    <input type="file" id="image" name="image" accept="image/*" onChange={(e) => setImage(e.target.files[0])}/>
-
-    
-    const new Etudiant ={
-            
-
-
-
-
-
+    <input type="file" id="image" name="image" accept="image/*" onChange={(e) => {
+        fichier=e.target.files[0]
+        if(fichier){
+            setImage(URL.createObjectURL(fichier));
+            }
+        }
     }
-
-
-    
-
-    
-    
+        />
    
-   <div>
-    
-    
-    <button type="submit"> Envoyer </button>
+   <div>    
+    <button type="submit" > Ajouter </button>
     <button type="reset"> Réinitialiser </button>
-    
-    
     </div>
-
-
-
-
 
 
     </form>
 
-
+);
 
 
 

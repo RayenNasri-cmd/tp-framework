@@ -5,9 +5,7 @@ import studentImage1 from "./assets/student1.jpg"
 import studentImage2 from "./assets/student2.jpg"
 import studentImage3 from "./assets/student3.jpg"
 import StudentForm from "./components/StudentForm.jsx";
-import { Counter } from "./components/counter.jsx";
-import { AjoutStudents } from "./components/ajoutStudent.jsx";
-import StudentForm from "./components/StudentForm.jsx";
+
   const etudiants1 = [
   {
     id:"1",
@@ -47,17 +45,6 @@ import StudentForm from "./components/StudentForm.jsx";
   }
 ];
 
-const newEtudiant = {
-  prenom: "Test",
-  nom: "Etudiant",
-  email: "test@gmail.com",
-  telephone: "+216 00 000 000",
-  filiere: "Génie Logiciel et Systèmes d'Information",
-  anneeEtude: "2ème année",
-  groupe: "GLSI 2",
-  ville: "Mahdia",
-  image: studentImage1,
-};
 
 function App() {
 
@@ -67,7 +54,9 @@ function App() {
       setEtudiants(etudiants.filter((etudiant)=>etudiant.id!==id));
   }
 
-
+    const ajouterStudents=(newEtudiant)=>{
+        setEtudiants([...etudiants,newEtudiant]);
+    }    
   return (
     
     
@@ -82,11 +71,9 @@ function App() {
         <a href="#">Étudiants</a>
         <a href="#">Contact</a>
       </nav>
+    
 
-      
-      <AjoutStudents etudiants={etudiants} setEtudiants={setEtudiants} newEtudiant={newEtudiant}/>
-
-      <StudentForm/>
+      <StudentForm onAjouter={ajouterStudents}/>
 
 
     {etudiants.map((etudiant) => (
